@@ -502,6 +502,7 @@ github.com/v2fly/ss-bloomring v0.0.0-20210312155135-28617310f63e/go.mod h1:5t19P
 github.com/v2fly/v2ray-core/v4 v4.40.0 h1:RbGKw0/2qV28eRSEC4n/jkhelCVLvFFjtm7+Saeb8OU=
 github.com/v2fly/v2ray-core/v4 v4.40.0/go.mod h1:lV6BRHAyKBggB7bd71z5dJZCM1ULujFyRzBlWzqL//g=
 github.com/v2fly/v2ray-core/v4 v4.40.1/go.mod h1:bLmI6lxFf3HNhTch4PmSbuKsUL2ntPG3zZUk4iRbkuQ=
+github.com/v2fly/v2ray-core/v4 v4.41.0/go.mod h1:bLmI6lxFf3HNhTch4PmSbuKsUL2ntPG3zZUk4iRbkuQ=
 github.com/viant/assertly v0.4.8 h1:5x1GzBaRteIwTr5RAGFVG14uNeRFxVNbXPWrK2qAgpc=
 github.com/viant/assertly v0.4.8/go.mod h1:aGifi++jvCrUaklKEKT0BU95igDNaqkvz+49uaYMPRU=
 github.com/viant/toolbox v0.24.0 h1:6TteTDQ68CjgcCe8wH3D3ZhUQQOJXMTbj/D9rkk2a1k=
