@@ -97,6 +97,15 @@ func (v *V2RayPoint) StopLoop() (err error) {
 	return
 }
 
+func (v *V2RayPoint) Shutdown() (err error) {
+	if v.IsRunning {
+		close(v.closeChan)
+		v.shutdownInit()
+		v.SupportSet.OnEmitStatus("Closed")
+	}
+	return
+}
+
 //Delegate Funcation
 func (v V2RayPoint) QueryStats(tag string, direct string) int64 {
 	if v.statsManager == nil {
