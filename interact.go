@@ -24,7 +24,8 @@ import (
 )
 
 const (
-	v2Asset = "v2ray.location.asset"
+	v2Asset     = "v2ray.location.asset"
+	v2Geoloader = "v2ray.conf.geoloader"
 )
 
 /*V2RayPoint V2Ray Point Server
@@ -170,6 +171,11 @@ func SetAssetsPath(envPath string, assetsPath string) {
 		}
 		return os.Open(path)
 	}
+}
+
+// InitV2Env set geoloader
+func SetGeoloader(geoloader string) {
+	os.Setenv(v2Geoloader, geoloader)
 }
 
 //Delegate Funcation
