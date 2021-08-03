@@ -2,15 +2,14 @@ package libv2ray
 
 import (
 	"fmt"
+	"github.com/nekohasekai/AndroidLibV2rayLite/VPN"
+	mobasset "golang.org/x/mobile/asset"
 	"io"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"sync"
-
-	"github.com/nekohasekai/AndroidLibV2rayLite/VPN"
-	mobasset "golang.org/x/mobile/asset"
 
 	v2core "github.com/v2fly/v2ray-core/v4"
 	v2filesystem "github.com/v2fly/v2ray-core/v4/common/platform/filesystem"
@@ -24,8 +23,7 @@ import (
 )
 
 const (
-	v2Asset     = "v2ray.location.asset"
-	v2Geoloader = "v2ray.conf.geoloader"
+	v2Asset = "v2ray.location.asset"
 )
 
 /*V2RayPoint V2Ray Point Server
@@ -171,11 +169,18 @@ func SetAssetsPath(envPath string, assetsPath string) {
 		}
 		return os.Open(path)
 	}
+
+	v2filesystem.NewFileSeeker = func(path string) (io.ReadSeekCloser, error) {
+		if _, err := os.Stat(path); os.IsNotExist(err) {
+			_, file := filepath.Split(path)
+			return mobasset.Open(assetsPath + file)
+		}
+		return os.Open(path)
+	}
 }
 
-// InitV2Env set geoloader
-func SetGeoloader(geoloader string) {
-	os.Setenv(v2Geoloader, geoloader)
+func Setenv(key, value string) error {
+	return os.Setenv(key, value)
 }
 
 //Delegate Funcation
